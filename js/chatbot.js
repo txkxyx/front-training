@@ -1,9 +1,11 @@
+// 画面ロード時に初回の質問を表示する
 window.onload = function () {
     var first_question = '<h2>お名前を教えてください<h2>';
     var first_output = document.getElementById('question');
     first_output.innerHTML = first_question;
 }
 
+// 質問管理番号
 var sequence = 0;
 
 function send_message() {
