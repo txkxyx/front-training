@@ -1,16 +1,16 @@
 // 画面ロード時に初回の質問を表示する
 window.onload = function () {
-    var first_question = '<h2>お名前を教えてください<h2>';
-    var first_output = document.getElementById('question');
+    const first_question = '<h2>お名前を教えてください<h2>';
+    let first_output = document.getElementById('question');
     first_output.innerHTML = first_question;
 }
 
 // 質問管理番号
-var sequence = 0;
+let sequence = 0;
 
 function send_message() {
-    question = document.getElementById('question').innerHTML;
-    message = document.getElementById('message').value;
+    const question = document.getElementById('question').innerHTML;
+    const message = document.getElementById('message').value;
     document.getElementById('answer').innerHTML += question + '<br>' + message;
 
     if (sequence == 0) {
@@ -31,8 +31,8 @@ function send_message() {
 }
 
 function set_next_question(next_question) {
-    var add_question = '<h2>' + next_question + '<h2>';
-    var add_output = document.getElementById('question');
+    const add_question = '<h2>' + next_question + '<h2>';
+    let add_output = document.getElementById('question');
     add_output.innerHTML = add_question;
     document.getElementById('message').value = '';
 }

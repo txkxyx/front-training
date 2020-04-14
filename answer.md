@@ -1,8 +1,8 @@
 # JavaScript 演習問題　解答
 
-# 1. 以下のGIF画像のような画面を作成せよ。
+## 1. 以下のような画面を作成せよ。
 
-![](color.gif)
+![color](color.gif)
 
 - HTMLファイル(color.html)
 
@@ -39,14 +39,14 @@
 
 ```javascript :color.js
 function send_color() {
-    var color = document.getElementById('color').value;
+    const color = document.getElementById('color').value;
     document.getElementById('change').style.backgroundColor = color;
 }
 ```
 
-## 2. 以下のGIF画像のような画面を作成せよ。
+## 2. 以下のような画面を作成せよ。
 
-![](pyramid.gif)
+![pyramid](pyramid.gif)
 
 - HTMLファイル(pyramid.html)
 
@@ -82,32 +82,32 @@ function send_color() {
 
 ```javascript :pyramid.js
 // 空白スペース
-var space = '\u00a0';
+const space = '\u00a0';
 // アスタリスク
-var asterisk = '*';
+let asterisk = '*';
 
 function send_stage() {
-    var pyramid = document.getElementById('pyramid');
+    let pyramid = document.getElementById('pyramid');
     // すでにピラミッドが描写されている場合は削除
     while (pyramid.firstChild) {
         pyramid.removeChild(pyramid.firstChild);
     }
-    var stage = document.getElementById('stage').value;
-    var paragraph = document.createElement('p');
+    const stage = document.getElementById('stage').value;
+    let paragraph = document.createElement('p');
     // ピラミッドを描写する
     for (var i = 1; i <= stage; i++) {
-        var text = document.createTextNode(space.repeat(stage - i) + asterisk.repeat(2 * i - 1));
+        const text = document.createTextNode(space.repeat(stage - i) + asterisk.repeat(2 * i - 1));
         paragraph.appendChild(text);
-        var br = document.createElement('br');
+        const br = document.createElement('br');
         paragraph.appendChild(br);
     }
     pyramid.appendChild(paragraph);
 }
 ```
 
-## 3. 以下のGIF画像のような画面を作成せよ。
+## 3. 以下のような画面を作成せよ。
 
-![](chatbot.gif)
+![chatbot](chatbot.gif)
 
 - HTMLファイル(chatbot.html)
 
@@ -144,17 +144,17 @@ function send_stage() {
 ```javascript :chatbot.js
 // 画面ロード時に初回の質問を表示する
 window.onload = function () {
-    var first_question = '<h2>お名前を教えてください<h2>';
-    var first_output = document.getElementById('question');
+    const first_question = '<h2>お名前を教えてください<h2>';
+    let first_output = document.getElementById('question');
     first_output.innerHTML = first_question;
 }
 
 // 質問管理番号
-var sequence = 0;
+let sequence = 0;
 
 function send_message() {
-    question = document.getElementById('question').innerHTML;
-    message = document.getElementById('message').value;
+    const question = document.getElementById('question').innerHTML;
+    const message = document.getElementById('message').value;
     document.getElementById('answer').innerHTML += question + '<br>' + message;
 
     if (sequence == 0) {
@@ -175,8 +175,8 @@ function send_message() {
 }
 
 function set_next_question(next_question) {
-    var add_question = '<h2>' + next_question + '<h2>';
-    var add_output = document.getElementById('question');
+    const add_question = '<h2>' + next_question + '<h2>';
+    let add_output = document.getElementById('question');
     add_output.innerHTML = add_question;
     document.getElementById('message').value = '';
 }
